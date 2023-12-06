@@ -41,7 +41,10 @@ def submit():
     msg = request.form["msg"]
     return f'Thanks {name}, you sent this message: "{msg}"'
 
-
+@app.route("/wave", methods=["GET"])
+def wave():
+    name = request.args["name"]
+    return f'I am waving at {name}'
 # == Example Code Below ==
 
 
