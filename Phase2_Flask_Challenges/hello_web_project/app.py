@@ -6,28 +6,40 @@ app = Flask(__name__)
 
 
 # == Your Routes Here ==
-@app.route("/hello", methods=["GET"])
-def get_hello():
-    return "Hello!!!!!!!"
+# @app.route("/hello", methods=["GET"])
+# def get_hello():
+#     return "Hello!!!!!!!"
 
 
-@app.route("/hello", methods=["POST"])
-def post_hello():
-    return "HELLLOOOO VIA POST"
+# @app.route("/hello", methods=["POST"])
+# def post_hello():
+#     return "HELLLOOOO VIA POST"
 
 
-@app.route("/greet", methods=["GET"])
-# curl 'http://localhost:5001/greet?person=Tom'
-def get_greet():
-    name = request.args["person"]
-    return f"HELLO THERE {name}!\n"
- 
-@app.route("/greet", methods=["POST"])
-# curl -X POST -d "person=TOM" http://localhost:5001/greet
-def post_greet():
-    print(request.form)
-    name = request.form['person']
-    return f"HELLO THERE {name}\n"
+# @app.route("/greet", methods=["GET"])
+# # curl 'http://localhost:5001/greet?person=Tom'
+# def get_greet():
+#     name = request.args["person"]
+#     return f"HELLO THERE {name}!\n"
+
+# @app.route("/greet", methods=["POST"])
+# # curl -X POST -d "person=TOM" http://localhost:5001/greet
+# def post_greet():
+#     print(request.form)
+#     name = request.form['person']
+#     return f"HELLO THERE {name}\n"
+
+# @app.route("/goodbye", methods=["POST"])
+# def goodbye():
+#     name = request.form["name"]
+#     return f"Goodbye, {name}\n"
+
+
+@app.route("/submit", methods=["POST"])
+def submit():
+    name = request.form["name"]
+    msg = request.form["msg"]
+    return f'Thanks {name}, you sent this message: "{msg}"'
 
 
 # == Example Code Below ==
@@ -44,9 +56,9 @@ def get_emoji():
 
 # This imports some more example routes for you to see how they work
 # You can delete these lines if you don't need them.
-from example_routes import apply_example_routes
+# from example_routes import apply_example_routes
 
-apply_example_routes(app)
+# apply_example_routes(app)
 
 # == End Example Code ==
 
